@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Hello! NIIGATA｜新潟市デジタル観光パンフレット</title>
+
+    <meta name="description"
+        content="新潟市の観光パンフレットをスマートフォンで閲覧できるデジタルパンフレットです。">
+
+    <!-- Swiper -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+    <!-- メニュー -->
+    <button id="menuButton" aria-label="ページ一覧を開く">
+        ☰
+    </button>
+    <button id="fullscreenButton" aria-label="全画面">
+    ⛶
+</button>
+
+    <!-- パンフレット -->
+    <div class="swiper mySwiper">
+
+        <div class="swiper-wrapper">
+        </div>
+
+        <!-- 矢印 -->
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+
+        <!-- ページ送り -->
+        <div class="swiper-pagination"></div>
+
+        <!-- ページ番号 -->
+        <div id="pageNumber"></div>
+
+    </div>
+<!-- サムネイル一覧 -->
+<div id="thumbnailPanel">
+
+    <div id="thumbnailHeader">
+        <span>ページ一覧</span>
+
+        <button id="closeThumbnail">
+            ✕
+        </button>
+    </div>
+
+    <div id="thumbnailGrid">
+
+        <!-- JavaScriptで生成 -->
+
+    </div>
+
+</div>
+    <!-- スワイプガイド -->
+    <div id="swipeGuide">
+
+        <div class="hand">☜</div>
+
+        <div class="guideText">
+            左へスワイプ
+        </div>
+
+    </div>
+
+    <!-- Swiper -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+
+    <!-- JavaScript -->
+    <script src="js/config.js"></script>
+    <script src="js/pages.js"></script>
+    <script src="js/swiper.js"></script>
+    <script src="js/guide.js"></script>
+    <script src="js/page-number.js"></script>
+    <script src="js/thumbnail.js"></script>
+    <script src="js/fullscreen.js"></script>
+
+</body>
+
+</html>
