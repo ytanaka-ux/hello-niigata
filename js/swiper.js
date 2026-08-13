@@ -13,8 +13,10 @@ const swiper = new Swiper(".mySwiper", {
     // 最後まで行ったらループしない
     loop: false,
 
-    // 最後に見たページから再開
-    initialSlide: Number(localStorage.getItem("lastPage")) || 0,
+    // 常に1ページ目（表紙）から開始
+    // Virtual Slidesが逆順になっているため、
+    // 32ページ構成の場合は31番目が実際の1ページ目
+    initialSlide: TOTAL_PAGES - 1,
 
     // 1ページずつ表示
     slidesPerView: 1,
@@ -96,6 +98,7 @@ const swiper = new Swiper(".mySwiper", {
      */
     preloadImages: false,
 
+    // 前後1ページだけ先読み
     lazyPreloadPrevNext: 1
 
 });
@@ -111,19 +114,17 @@ swiper.on("slideChange", () => {
      * VirtualではSwiper内部の番号と
      * 実際のパンフレットページが逆になるため、
      * 実際のページ番号に変換
+     *
+     * 32ページの場合
+     * activeIndex 31 → 1ページ目
+     * activeIndex 30 → 2ページ目
+     * activeIndex 29 → 3ページ目
+     * ...
+     * activeIndex 0  → 32ページ目
      */
     const currentPage =
         TOTAL_PAGES - swiper.activeIndex;
 
     console.log("現在ページ:", currentPage);
-
-    /*
-     * 次回アクセス時に
-     * 最後に見ていた位置から再開
-     */
-    localStorage.setItem(
-        "lastPage",
-        swiper.activeIndex
-    );
 
 });
