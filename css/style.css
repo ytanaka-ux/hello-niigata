@@ -143,7 +143,6 @@ body{
 @keyframes swipeHand{
 
     0%{
-
         transform:translateX(-35px);
 
         opacity:0;
